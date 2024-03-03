@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, inital-scale=1.0">
+        <link href="../output.css" rel="stylesheet">
+    </head>
+
+    <body>
+        <div class="flex">
+            <!-- Left panel -->
+            <div class="h-screen w-72 flex justify-center bg-red-600 text-white">
+                <h1 class="mt-10 text-xl">Contact NTV</h1>
+            </div>
+    
+            <!-- Right panel (containing the grid) -->
+            <div class="flex-grow flex justify-center items-center">
+                <div class="w-full max-w-md">
+                    <h2 class="font-bold text-xl mb-4">Email Us</h2>
+                    <div class="grid grid-cols-2 gap-4">
+                        <!-- First row with 2 columns -->
+                        <div>
+                            <div>
+                                <label for="name" class="block">Name</label>
+                                <input type="text" id="name" class="border border-red-500 p-2 w-full">
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <label for="comp" class="block">Company</label>
+                                <input type="text" id="comp" class="border border-red-500 p-2 w-full">
+                            </div>
+                        </div>
+                        <!-- Second row with 2 columns -->
+                        <div>
+                            <div>
+                                <label for="email" class="block">Email</label>
+                                <input type="text" id="email" class="border border-red-500 p-2 w-full">
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <label for="numb" class="block">Number</label>
+                                <input type="text" id="numb" class="border border-red-500 p-2 w-full">
+                            </div>
+                        </div>
+                        <!-- Third row with 4 columns -->
+                        <div class="col-span-2">
+                            <div>
+                                <label for="mess" class="block">Message</label>
+                                <input type="text" id="mess" class="border border-red-500 p-2 w-full h-24">
+                            </div>
+                        </div>
+                        <div class="col-span-2">
+                            <div class="text-white">
+                                <button class="bg-red-600 p-2 w-full"> Submit </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
