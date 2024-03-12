@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./output.css" rel="stylesheet">
+    <title>THL - Menu</title>
+</head>
+<body>
+    <header>
+        <div class="flex sm:justify-center items-center lg:justify-around bg-slate-950 text-white">
+            <img class="size-1/2 lg:size-1/4" src="./images/THLlogo.jpg" alt="logo">
+            <div class="bg-amber-300 rounded-2xl flex flex-col sm:items-center lg:flex-row p-8">
+                <button onclick="redirectToPage('./home.html')" class="bg-red-500 hover:bg-red-600 font-bold mx-2 my-1 py-2 px-4 rounded">Home</button>
+                <button class="border-2 border-amber-900 bg-red-500 hover:bg-red-600 font-bold mx-2 my-1 py-2 px-4 rounded">Menu</button>
+                <button class="bg-red-500 hover:bg-red-600 font-bold mx-2 my-1 py-2 px-4 rounded">About Us</button>
+                <button onclick="redirectToPage('./contact.html')" class="bg-red-500 hover:bg-red-600 font-bold mx-2 my-1 py-2 px-4 rounded">Contact</button>
+            </div>
+        </div>
+    </header>
+    <!-- Yellow gap -->
+    <div class="flex justify-center text-xl bg-amber-300 p-8">
+        <h1 class="font-bold">See our menu!</span></h1>
+    </div>
+    <!-- Menu items -->
+    <div class="flex justify-center items-center bg-slate-900 text-white p-8">
+        <div class="flex flex-col justify-center bg-opacity-50 rounded-lg bg-amber-300 p-8">
+            <h1 class="text-2xl font-bold underline">Burgers</h1>
+            <ol>
+                <li><b>Classic Burger</b> - beef patty, lettuce, tomato, onion, pickles, ketchup, mustard, sesame seed bun</li>
+                <li><b>Jammy Burger</b> - beef patty, onion, pickles, jam, sesame seed bun</li>
+                <li><b>Classic Burger</b> - beef patty, lettuce, tomato, onion, pickles, ketchup, mustard, sesame seed bun</li>
+                <li><b>Bacon Cheeseburger</b> - beef patty, Cheese, bacon, lettuce, tomato, onion, pickles, mayo and brioche bun</li>
+                <li><b>BBQ Burger</b> - beef patty, BBQ sauce, onion rings, cheddar cheese, lettuce, tomato, pretzel bun</li>
+                <li><b>Spicy Chicken Burger</b> - breaded chicken breast, spicy mayo, peppered cheese, lettuce, tomato, pickled jalapenos, potato bun</li>
+            </ol>
+            <h1 class="text-2xl font-bold underline">Meals</h1>
+            <ol>
+                <li><b>Burger Meal</b> - chosen burger with a drink and fries</li>
+                <li><b>Chicken Tendie Meal</b> - crispy chicken tenders with a choice of dipping sauce, drink and fries</li>
+                <li><b>BBQ Burger</b> - beef patty, BBQ sauce, onion rings, cheddar cheese, lettuce, tomato, pretzel bun</li>
+            </ol>
+            <h1 class="text-2xl font-bold underline">Sides</h1>
+            <ol>
+                <li><b>French Fries</b></li>
+                <li><b>Sweet Potato Fries</b></li>
+                <li><b>Onion Ring</b></li>
+                <li><b>Side Salad</b></li>
+                <li><b>Coleslaw</b></li>
+            </ol>
+            <h1 class="text-2xl font-bold underline">Sides</h1>
+            <ol>
+                <li><b>Ketchup</b></li>
+                <li><b>Mustard</b></li>
+                <li><b>BBQ Sauce</b></li>
+                <li><b>Ranch</b></li>
+                <li><b>Honey Mustard</b></li>
+                <li><b>Garlic Aioli</b></li>
+            </ol>
+            <h1 class="text-2xl font-bold underline">Drinks</h1>
+            <ol>
+                <li><b>Soda (Coke, Pepsi, Sprite, Appelsin)</b></li>
+                <li><b>Ices Tea</b></li>
+                <li><b>Water</b></li>
+                <li><b>Milk shakes (Vanilla, Chocolate, Strawberry, Oreo)</b></li>
+            </ol>
+        </div>
+    </div>
+    <footer>
+        <div class="flex flex-col items-center bg-gradient-to-t from-black to-slate-900 text-white p-8 font-bold">
+            <h2>1404 Food Road</h2>
+            <h2>+354 555-3212</h2>
+            <h2 class="mt-2">10:00 - 22:00: Monday ~ Saturday</h2>
+            <h2>11:00 - 20:00: Sunday</h2>
+        </div>
+    </footer>
+    <script src="./scripts/menu.js"></script>
+</body>
+</html>

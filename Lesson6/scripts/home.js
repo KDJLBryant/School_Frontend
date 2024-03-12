@@ -5,3 +5,7 @@ function scrollToId(id) {
         block: 'start'
     });
 }
+
+function redirectToPage(pageUrl) {
+    window.location.href = pageUrl;
+}

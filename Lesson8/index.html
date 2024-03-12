@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, inital-scale=1.0">
+        <link href="./output.css" rel="stylesheet">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <div class="flex justify-center items-center">
+            <h1 class="font-bold">Range: </h1>
+            <input class="border" type="number" name="limit" id="limit">
+            <h1 class="font-bold">Increment/Decrement by: </h1>
+            <input class="border" type="number" name="input" id="input">
+            <div class="">
+                <button class="border p-5" onclick="onButtonClick('Plus')">Plus</button>
+                <button class="border p-5" onclick="onButtonClick('Minus')">Minus</button>
+                <button class="border p-5" onclick="saveToLocalStorage()">Save</button>
+                <button class="border p-5" onclick="getFromLocalStorage()">Load</button>
+            </div>
+            <p class="text-red-600 font-bold text-xl" id="boom"></p>
+        </div>
+    </body>
+    <script src="script.js"></script>
+</html>
