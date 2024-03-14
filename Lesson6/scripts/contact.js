@@ -1,10 +1,6 @@
 const defaultMsg = "Enter message here:"
 
-function redirectToPage(pageUrl) {
-    window.location.href = pageUrl;
-}
-
-const setDefaultMsg = () => {
+const setDefaultMsgToHtml = () => {
     document.getElementById("msg").value = defaultMsg;    
 } 
 
@@ -24,4 +20,4 @@ const sumbitReport = () => {
     }
 }
 
-setDefaultMsg();
+setDefaultMsgToHtml();
