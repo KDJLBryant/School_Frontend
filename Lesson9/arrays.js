@@ -20,10 +20,12 @@ myFunction([7,2,1,6,3],1) Expected 7
 // Return the result
 // Tip: use the array prototype function slice()
 const removeFirstThreeElements = (a) => {
-  return a.slice(0, 3);
+	a = a.slice(3);
+	return a;
 };
 
 console.log(removeFirstThreeElements([1,2,3,4]));
+console.log(removeFirstThreeElements([5,4,3,2,1,0]));
 
 /*
 Test cases:
@@ -38,8 +40,11 @@ myFunction([99,1,1]) Expected []
 // It should return the last n elements of a
 // Tip: use the array prototype function slice()
 const removeLastNElements = (a, n) => {
-  return;
+	a = a.splice(-n);
+	return a;
 };
+
+console.log(removeLastNElements([1,2,3,4,5], 2));
 
 /*
 Test cases:
@@ -53,8 +58,11 @@ myFunction([1, 2, 3, 4, 5, 6, 7, 8], 3) Expected [ 6, 7, 8 ]
 // Return the number of elements in a
 // Tip: How do you find the length of an array?
 const countNumberOfElements = (a) => {
-  return;
+  return a.length;
 };
+
+console.log(countNumberOfElements([1,2,2,4]));
+
 /*
 Test cases: 
 myFunction([1,2,2,4]) Expected 4
@@ -70,8 +78,17 @@ myFunction([4,3,2,1,0]) Expected 5
 // - Use .filter() to filter only negative numbers, and count them
 // - Use .forEach() to iterate through all numbers and count negatives
 const countNumberOfNegativeValues = (a) => {
-  return;
+  let count = 0;
+
+  a.forEach((val) => {
+        if (val < 0) {
+            count++;
+        }
+    });
+    return count;
 };
+
+console.log(countNumberOfNegativeValues([1,-2,2,-4]));
 
 /*
 Test cases:
@@ -86,8 +103,17 @@ myFunction([4,-3,2,1,0]) Expected 1
 // It should return the sum of the numbers
 // Tip: forEach, c-style loop (or even .reduce() for the brave)
 const calcSumOfArrayOfNumbers = (a) => {
-  return;
+    let sum = 0;
+
+    a.forEach((val) => {
+        sum += val;
+    });
+
+    return sum;
 };
+
+console.log(calcSumOfArrayOfNumbers([10,100,40]));
+console.log(calcSumOfArrayOfNumbers([-50,0,50,200]));
 
 /*
 Test cases:
@@ -102,8 +128,17 @@ myFunction([-50,0,50,200]) Expected 200
 // Tip: forEach, c-style loop (or even .reduce() for the brave)
 // to get the sum, then divide by number of elements in array
 const calcAvgOfArrayOfNumbers = (arr) => {
-  return;
+    let sum = 0;
+
+    arr.forEach((val) => {
+        sum += val;
+    });
+
+    return sum / arr.length;
 };
+
+console.log(calcAvgOfArrayOfNumbers([10,100,40]));
+console.log(calcAvgOfArrayOfNumbers([10,100,1000]));
 
 /*
 Test cases:
@@ -118,8 +153,18 @@ myFunction([-50,0,50,200]) Expected 50
 // Tip: It's possible to get length of string with .length
 // E.g. 'Gunnsteinn'.length = 10
 const getLongestStringFromArray = (arr) => {
-  return;
+    let largestStringIndex = 0;
+
+    arr.forEach((str, index) => {
+        if (index !== 0 && str.length > arr[index-1].length) {
+            largestStringIndex = index;
+        }
+    });
+    return arr[largestStringIndex];
 };
+
+console.log(getLongestStringFromArray(['help', 'me']));
+console.log(getLongestStringFromArray(['I', 'need', 'candy']));
 
 /*
 Test cases:
@@ -133,8 +178,24 @@ myFunction(['I', 'need', 'candy']) Expected 'candy'
 // It should return false otherwise
 // Tip: STRICTLY equal, ====
 const areAllEqual = (arr) => {
-  return;
+    let equalAmount = 1;
+
+    arr.forEach((val, index) => {
+        if (index !== 0 && val === arr[index-1]) {
+            equalAmount += 1;
+        }
+    });
+
+    if (equalAmount === arr.length) {
+        return true;
+    } else {
+        return false;
+    }
 };
+
+console.log(areAllEqual([true,true,true,true]));
+console.log(areAllEqual([1,1,1,2]));
+console.log(areAllEqual(['10',10,10,10]));
 
 /*
 Test cases:
@@ -148,8 +209,11 @@ myFunction(['10',10,10,10]) Expected false
 // It should return an array containing the values of all arrays
 // Tip: Make use of the spread syntax (...), as the parameters suggest
 const mergeAllArrays = (...arrays) => {
-  return;
+    return arrays.join(',');
 };
+
+console.log(mergeAllArrays([1,2,3], [4,5,6]));
+console.log(mergeAllArrays(['a','b','c'], [4,5,6]));
 
 /*
 Test cases:
