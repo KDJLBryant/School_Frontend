@@ -35,20 +35,22 @@ type JobProps = {
 
 const Job = (props: JobProps) => {
   return (
-    <p>
-      {props.title}
-      {props.subTitle}
-      {props.description}
-    </p>
+    <div className="p-4">
+      <p className="font-bold text-xl">{props.title}</p>
+      <p className="font-bold underline">{props.subTitle}</p>
+      <p>{props.description}</p>
+    </div>
   );
 };
 
 const Header = () => {
   return (
-    <div className="flex justify-center items-center">
-      <Image className="size-1/4 p-4" src={image} alt="smiley" />
-      <p>Mr.Smiley</p>
-      <p>Im feeling real good about working</p>
+    <div className="flex justify-around items-center bg-slate-400">
+      <Image className="size-1/6 p-4" src={image} alt="smiley" />
+      <div>
+        <p className="font-bold text-2xl mr-4">Mr.Smiley</p>
+        <p>Im feeling real good about working</p>
+      </div>
     </div>
   );
 };
@@ -59,7 +61,11 @@ type ContentProps = {
 
 const Content = (props: ContentProps) => {
   return (
-    <div className="">
+    <div className="bg-slate-300">
+      <div className="bg-slate-600 text-white p-4">
+        I'm looking for work in web development! Please hire me, oh lord!
+        Please!
+      </div>
       {props.data.map((item) => (
         <Job
           key={item.id}
@@ -72,11 +78,20 @@ const Content = (props: ContentProps) => {
   );
 };
 
+const Footer = () => {
+  return (
+    <div className="flex justify-center bg-slate-400 p-8">
+      <p className="font-bold text-2xl">Thanks for reading!</p>
+    </div>
+  );
+};
+
 export default function Home() {
   return (
     <div>
       <Header />
       <Content data={JOB_DATA} />
+      <Footer />
     </div>
   );
 }
