@@ -86,7 +86,7 @@ const ShoppingList = () => {
     }
   };
 
-  const handleClearDisplayValue = (idToColor: number) => {
+  const handleColorDisplayValue = (idToColor: number) => {
     const newDisplayValues = displayValues.map((displayValue) => {
       if (displayValue.id === idToColor) {
         return {
@@ -126,7 +126,7 @@ const ShoppingList = () => {
           key={id}
           displayValue={value}
           id={id}
-          handleClick={handleClearDisplayValue}
+          handleClick={handleColorDisplayValue}
           handleRemove={handleRemoveDisplayValue}
           shouldBeYellow={shouldBeYellow}
         />
