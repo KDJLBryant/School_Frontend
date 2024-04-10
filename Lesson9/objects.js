@@ -3,8 +3,10 @@
 // In other words, it should not be null or undefined or false
 // Return false otherwise
 const checkIfPropertyExistsAndTruthy = (a, b) => {
-  return;
+  return a[b] ? true : false;
 };
+console.log(checkIfPropertyExistsAndTruthy({a:1,b:2,c:3}, 'b'));
+console.log(checkIfPropertyExistsAndTruthy({x:'a',y:null,z:'c'}, 'y'));
 /*
 Test cases:
 myFunction({a:1,b:2,c:3},'b') Expected true
@@ -17,9 +19,9 @@ myFunction({x:'a',b:'b',z:undefined},'z') Expected false
 // Write a function that takes an object with two properties as argument
 // It should return the value of the property with key country
 const getCountry = (obj) => {
-  return;
+  return obj['country'];
 };
-
+console.log(getCountry({ continent: 'Asia', country: 'Japan' }));
 /*
 Test cases:
 myFunction({ continent: 'Asia', country: 'Japan' }) Expected 'Japan'
@@ -32,9 +34,9 @@ myFunction({ country: 'Sweden', continent: 'Europe' }) Expected 'Sweden'
 // It should return the value of the property with key 'prop-2'
 // Tip: you might want to use the square brackets to access the property
 const getWeirdKeyValue = (obj) => {
-  return;
+  return obj['prop-2'];
 };
-
+console.log(getWeirdKeyValue({ one: 1, 'prop-2': 2 }));
 /*
 Test cases:
 myFunction({  one: 1,  'prop-2': 2}) Expected 2
@@ -46,9 +48,10 @@ myFunction({  'prop-2': 'two',  prop: 'test'}) Expected 'two'
 // Write a function that takes an object with two properties and a string as arguments
 // It should return the value of the property with key equal to the value of the string
 const getPropertyByString = (obj, key) => {
-  return;
+  return obj[key];
 };
-
+console.log(getPropertyByString({ continent: 'Asia', country: 'Japan' }, 'continent'));
+console.log(getPropertyByString( { country: 'Sweden',  continent: 'Europe'}, 'country'));
 /*
 Test cases:
 myFunction({  continent: 'Asia',  country: 'Japan'}, 'continent') Expected 'Asia'
@@ -62,9 +65,11 @@ myFunction({  country: 'Sweden',  continent: 'Europe'}, 'country') Expected 'Swe
 // Return false otherwise
 // NOTE: Test case 3 is a bit tricky because the value of property 'z' is undefined, but the property itself exists
 const checkIfPropertyExists = (a, b) => {
-  return;
+  return a.hasOwnProperty(b);
 };
-
+console.log(checkIfPropertyExists({a:1,b:2,c:3},'b'));
+console.log(checkIfPropertyExists({x:'a',y:'b',z:'c'},'b'));
+console.log(checkIfPropertyExists({x:'a',y:'b',z:undefined},'z'));
 /*
 Test cases:
 myFunction({a:1,b:2,c:3},'b') Expected true
@@ -78,9 +83,9 @@ myFunction({x:'a',y:'b',z:undefined},'z') Expected true
 // Create an object that has a property with key 'key' and a value equal to the string
 // Return the object
 const createObjectWithKeyValue = (a) => {
-  return;
+  return obj = {key: a};
 };
-
+console.log(createObjectWithKeyValue('a'));
 /*
 Test cases:
 myFunction('a') Expected {key:'a'}
@@ -94,9 +99,9 @@ myFunction('b') Expected {key:'b'}
 // Create an object that has a property with key 'a' and a value of 'b'
 // Return the object
 const createObjectWithKeyAndValue = (a, b) => {
-  return;
+  return obj = {a: b};
 };
-
+console.log(createObjectWithKeyAndValue('a', 'b'));
 /*
 Test cases:
 myFunction('a','b') Expected {a:'b'}
@@ -110,9 +115,13 @@ myFunction('b','w') Expected {b:'w'}
 // Create an object that has properties with keys 'a' and corresponding values 'b'
 // Return the object
 const createObjectFromArrays = (a, b) => {
-  return;
+  return obj = a.reduce((acc, a, index) => {
+    acc[a] = b[index];
+    return acc;
+  }, {});
 };
-
+console.log(createObjectFromArrays(['a', 'b', 'c'], [1,2,3]));
+console.log(createObjectFromArrays([1,'b'],['a',2]));
 /*
 Test cases:
 myFunction(['a','b','c'],[1,2,3]) Expected {a:1,b:2,c:3}
@@ -125,9 +134,9 @@ myFunction([1,'b'],['a',2]) Expected {1:'a',b:2}
 // Return an array with all object keys
 // Tip: Object.keys()
 const extractKeysFromObject = (a) => {
-  return;
+  return keys = a.keys();
 };
-
+console.log(extractKeysFromObject({a:1,b:2,c:3}));
 /*
 Test cases:
 myFunction({a:1,b:2,c:3}) Expected ['a','b','c']
