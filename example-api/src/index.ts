@@ -2,6 +2,7 @@
 import express, { Express, Request, Response } from "express";
 import dotenv from "dotenv";
 import cors from "cors";
+import bodyParser  from "body-parser"
 
 let nextId = 4;
 let expenses = [
@@ -21,8 +22,13 @@ dotenv.config();
  * value of the PORT environment variable
  * from the `process.env`
  */
+
 const api: Express = express();
 api.use(cors());
+api.use(express.json());
+api.use(bodyParser.urlencoded({ extended: false }));
+
+console.log(process.env.PORT);
 const port = 3001;
 
 api.get("/api/expenses", (req, res) => {
@@ -31,9 +37,10 @@ api.get("/api/expenses", (req, res) => {
 });
 
 api.post("/api/create-expense", (req, res) => {
-	console.log(req.body);
+	console.log(req);
 	const name = req.body.name;
 	const cost = req.body.cost;
+
 
 	if (!name || !cost) {
 		res.json({
