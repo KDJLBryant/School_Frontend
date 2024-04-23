@@ -1,5 +1,6 @@
 import { FC, PropsWithChildren, useEffect, useState } from "react";
 import { Expense, api } from "./api";
+import { AdminRightsProvider, useAdminRights } from "./AdminRightsContext";
 
 type ExpenseInputProps = {
   onSubmit: (newExpense: Expense) => void;
@@ -40,14 +41,45 @@ const ExpenseInput: FC<ExpenseInputProps> = ({ onSubmit }) => {
 };
 
 const DeleteButton: FC<{ id: number }> = ({ id }) => {
+  const { value } = useAdminRights();
+
   const handleDelete = () => {
-    api.deleteExpense(id);
+    if (value) {
+      api.deleteExpense(id);
+    } else {
+      console.log("Not authorized");
+    }
   };
 
   return (
     <div>
-      <button className="border rounded bg-red-600 p-2" onClick={handleDelete}>
-        Delete
+      {value && (
+        <button
+          className="border rounded bg-red-600 p-2"
+          onClick={handleDelete}
+        >
+          Delete
+        </button>
+      )}
+    </div>
+  );
+};
+
+const AdminToggle = () => {
+  const { value, toggleValue } = useAdminRights();
+
+  const handleToggle = () => {
+    toggleValue();
+    console.log("Toggled admin");
+  };
+
+  return (
+    <div>
+      <button
+        onClick={handleToggle}
+        className="border rounded bg-slate-600 p-2"
+      >
+        {value ? "Disable Admin" : "Enable Admin"}
       </button>
     </div>
   );
@@ -75,18 +107,21 @@ const Expenses = () => {
   return (
     <div className="m-10">
       <div className="mb-4">
-        <ExpenseInput onSubmit={api.postExpenses} />
-        {expenses.map((expense) => (
-          <div key={expense.id} className="flex items-center mb-2">
-            <p
-              className="rounded-xl bg-red-300 text-center text-xl p-2 m-2"
-              key={expense.id}
-            >
-              {expense.id}: {expense.name} - {expense.cost}kr
-            </p>
-            <DeleteButton id={expense.id} />
-          </div>
-        ))}
+        <AdminRightsProvider>
+          <AdminToggle />
+          <ExpenseInput onSubmit={api.postExpenses} />
+          {expenses.map((expense) => (
+            <div key={expense.id} className="flex items-center mb-2">
+              <p
+                className="rounded-xl bg-red-300 text-center text-xl p-2 m-2"
+                key={expense.id}
+              >
+                {expense.id}: {expense.name} - {expense.cost}kr
+              </p>
+              <DeleteButton id={expense.id} />
+            </div>
+          ))}
+        </AdminRightsProvider>
       </div>
     </div>
   );

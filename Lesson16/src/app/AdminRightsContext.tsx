@@ -2,8 +2,8 @@ import {
   Dispatch,
   FC,
   ReactNode,
-  SetStateAction,
   createContext,
+  useContext,
   useState,
 } from "react";
 
@@ -17,13 +17,15 @@ export const AdminRights = createContext<AdminRightsType>({
   toggleValue: () => {},
 });
 
+export const useAdminRights = () => useContext(AdminRights);
+
 export const AdminRightsProvider: FC<{ children: ReactNode }> = ({
   children,
 }) => {
   const [value, setValue] = useState(false);
 
   const toggleValue = () => {
-    setValue((prevValue) => !prevValue);
+    setValue(!value);
   };
 
   return (
