@@ -78,7 +78,7 @@ const AdminToggle = () => {
     <div>
       <button
         onClick={handleToggle}
-        className="border rounded bg-slate-600 p-2"
+        className="border rounded bg-slate-600 text-white p-2"
       >
         {value ? "Disable Admin" : "Enable Admin"}
       </button>
