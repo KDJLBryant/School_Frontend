@@ -1,10 +1,10 @@
 // Write a function that takes an array (a) and a value (n) as argument
 // Return the nth element of 'a'
 const getNthCharacterInArray = (a, n) => {
-  return a[n-1];
+    return a[n - 1];
 };
 
-console.log(getNthCharacterInArray([1,2,3,4,5], 3));
+console.log(getNthCharacterInArray([1, 2, 3, 4, 5], 3));
 
 /*
 Test cases:
@@ -20,12 +20,12 @@ myFunction([7,2,1,6,3],1) Expected 7
 // Return the result
 // Tip: use the array prototype function slice()
 const removeFirstThreeElements = (a) => {
-	a = a.slice(3);
-	return a;
+    a = a.slice(3);
+    return a;
 };
 
-console.log(removeFirstThreeElements([1,2,3,4]));
-console.log(removeFirstThreeElements([5,4,3,2,1,0]));
+console.log(removeFirstThreeElements([1, 2, 3, 4]));
+console.log(removeFirstThreeElements([5, 4, 3, 2, 1, 0]));
 
 /*
 Test cases:
@@ -40,11 +40,11 @@ myFunction([99,1,1]) Expected []
 // It should return the last n elements of a
 // Tip: use the array prototype function slice()
 const removeLastNElements = (a, n) => {
-	a = a.splice(-n);
-	return a;
+    a = a.splice(-n);
+    return a;
 };
 
-console.log(removeLastNElements([1,2,3,4,5], 2));
+console.log(removeLastNElements([1, 2, 3, 4, 5], 2));
 
 /*
 Test cases:
@@ -58,10 +58,10 @@ myFunction([1, 2, 3, 4, 5, 6, 7, 8], 3) Expected [ 6, 7, 8 ]
 // Return the number of elements in a
 // Tip: How do you find the length of an array?
 const countNumberOfElements = (a) => {
-  return a.length;
+    return a.length;
 };
 
-console.log(countNumberOfElements([1,2,2,4]));
+console.log(countNumberOfElements([1, 2, 2, 4]));
 
 /*
 Test cases: 
@@ -78,9 +78,9 @@ myFunction([4,3,2,1,0]) Expected 5
 // - Use .filter() to filter only negative numbers, and count them
 // - Use .forEach() to iterate through all numbers and count negatives
 const countNumberOfNegativeValues = (a) => {
-  let count = 0;
+    let count = 0;
 
-  a.forEach((val) => {
+    a.forEach((val) => {
         if (val < 0) {
             count++;
         }
@@ -88,7 +88,7 @@ const countNumberOfNegativeValues = (a) => {
     return count;
 };
 
-console.log(countNumberOfNegativeValues([1,-2,2,-4]));
+console.log(countNumberOfNegativeValues([1, -2, 2, -4]));
 
 /*
 Test cases:
@@ -112,8 +112,8 @@ const calcSumOfArrayOfNumbers = (a) => {
     return sum;
 };
 
-console.log(calcSumOfArrayOfNumbers([10,100,40]));
-console.log(calcSumOfArrayOfNumbers([-50,0,50,200]));
+console.log(calcSumOfArrayOfNumbers([10, 100, 40]));
+console.log(calcSumOfArrayOfNumbers([-50, 0, 50, 200]));
 
 /*
 Test cases:
@@ -137,8 +137,8 @@ const calcAvgOfArrayOfNumbers = (arr) => {
     return sum / arr.length;
 };
 
-console.log(calcAvgOfArrayOfNumbers([10,100,40]));
-console.log(calcAvgOfArrayOfNumbers([10,100,1000]));
+console.log(calcAvgOfArrayOfNumbers([10, 100, 40]));
+console.log(calcAvgOfArrayOfNumbers([10, 100, 1000]));
 
 /*
 Test cases:
@@ -156,7 +156,7 @@ const getLongestStringFromArray = (arr) => {
     let largestStringIndex = 0;
 
     arr.forEach((str, index) => {
-        if (index !== 0 && str.length > arr[index-1].length) {
+        if (index !== 0 && str.length > arr[index - 1].length) {
             largestStringIndex = index;
         }
     });
@@ -181,7 +181,7 @@ const areAllEqual = (arr) => {
     let equalAmount = 1;
 
     arr.forEach((val, index) => {
-        if (index !== 0 && val === arr[index-1]) {
+        if (index !== 0 && val === arr[index - 1]) {
             equalAmount += 1;
         }
     });
@@ -193,9 +193,9 @@ const areAllEqual = (arr) => {
     }
 };
 
-console.log(areAllEqual([true,true,true,true]));
-console.log(areAllEqual([1,1,1,2]));
-console.log(areAllEqual(['10',10,10,10]));
+console.log(areAllEqual([true, true, true, true]));
+console.log(areAllEqual([1, 1, 1, 2]));
+console.log(areAllEqual(['10', 10, 10, 10]));
 
 /*
 Test cases:
@@ -212,8 +212,8 @@ const mergeAllArrays = (...arrays) => {
     return arrays.join(',');
 };
 
-console.log(mergeAllArrays([1,2,3], [4,5,6]));
-console.log(mergeAllArrays(['a','b','c'], [4,5,6]));
+console.log(mergeAllArrays([1, 2, 3], [4, 5, 6]));
+console.log(mergeAllArrays(['a', 'b', 'c'], [4, 5, 6]));
 
 /*
 Test cases:
